@@ -1,0 +1,24 @@
+ruby-localhost (1.1.9-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release 1.1.9
+    Doesn't try to test using an option that is now ignored by curl > 7.77
+    (Closes: #998638)
+  * Refresh patches
+  * add patch: gemspec: drop signing key
+
+ -- Antonio Terceiro <terceiro@debian.org>  Sat, 13 Nov 2021 09:44:30 -0300
+
+ruby-localhost (1.1.8-2) unstable; urgency=medium
+
+  * debian/control
+    - Add Build-Depends: ruby-async-rspec
+  * Upload to unstable
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 24 Oct 2021 21:12:01 +0900
+
+ruby-localhost (1.1.8-1) experimental; urgency=medium
+
+  * Initial release (Closes: #993218)
+
+ -- Hideki Yamane <henrich@debian.org>  Sun, 01 Aug 2021 00:21:30 +0900

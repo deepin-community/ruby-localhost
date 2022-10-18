@@ -1,0 +1,33 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sun, 29 Aug 2021 02:37:46 +0900
+Subject: Add require 'async/rspec'
+
+---
+ spec/localhost/authority_spec.rb | 1 +
+ spec/localhost/protocol_spec.rb  | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/spec/localhost/authority_spec.rb b/spec/localhost/authority_spec.rb
+index ec2bd7c..28b4506 100644
+--- a/spec/localhost/authority_spec.rb
++++ b/spec/localhost/authority_spec.rb
+@@ -23,6 +23,7 @@ require 'localhost/authority'
+ require 'async/io/host_endpoint'
+ require 'async/io/ssl_endpoint'
+ 
++require 'async/rspec'
+ require 'async/process'
+ require 'fileutils'
+ 
+diff --git a/spec/localhost/protocol_spec.rb b/spec/localhost/protocol_spec.rb
+index fd22d49..59293ff 100644
+--- a/spec/localhost/protocol_spec.rb
++++ b/spec/localhost/protocol_spec.rb
+@@ -23,6 +23,7 @@ require 'localhost/authority'
+ require 'async/io/host_endpoint'
+ require 'async/io/ssl_endpoint'
+ 
++require 'async/rspec'
+ require 'async/process'
+ require 'fileutils'
+ 

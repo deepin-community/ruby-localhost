@@ -1,0 +1,29 @@
+Source: ruby-localhost
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Hideki Yamane <henrich@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1),
+               ruby-rspec (>= 3.0), ruby-rspec (<< 4.0),
+               rake (>= 10.0),
+               bundler,
+               ruby-async-io, ruby-async-process, ruby-async-rspec,
+               curl,
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-localhost.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-localhost
+Homepage: https://github.com/socketry/localhost
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-localhost
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: Manage a local certificate authority for self-signed localhost
+ This provides a convenient API for generating per-user self-signed root
+ certificates, is useful for development.

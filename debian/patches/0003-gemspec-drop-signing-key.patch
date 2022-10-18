@@ -1,0 +1,22 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Fri, 5 Nov 2021 08:35:23 -0300
+Subject: gemspec: drop signing key
+
+---
+ localhost.gemspec | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/localhost.gemspec b/localhost.gemspec
+index 3bdaf39..fff5bda 100644
+--- a/localhost.gemspec
++++ b/localhost.gemspec
+@@ -9,9 +9,6 @@ Gem::Specification.new do |spec|
+ 	spec.authors = ["Samuel Williams"]
+ 	spec.license = "MIT"
+ 	
+-	spec.cert_chain  = ['release.cert']
+-	spec.signing_key = File.expand_path('~/.gem/release.pem')
+-	
+ 	spec.homepage = "https://github.com/socketry/localhost"
+ 	
+ 	spec.files = Dir.glob('{lib}/**/*', File::FNM_DOTMATCH, base: __dir__)
