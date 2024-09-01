@@ -1,3 +1,10 @@
+ruby-localhost (1.1.9-2) unstable; urgency=medium
+
+  * Skip curl tests (Closes: #1027080)
+  * Add test to not reuse serial numbers
+
+ -- Antonio Terceiro <terceiro@debian.org>  Tue, 07 Feb 2023 18:31:57 +0100
+
 ruby-localhost (1.1.9-1) unstable; urgency=medium
 
   * Team upload

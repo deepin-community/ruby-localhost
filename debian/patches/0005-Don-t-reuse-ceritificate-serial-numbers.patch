@@ -1,0 +1,28 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Tue, 7 Feb 2023 18:20:46 +0100
+Subject: Don't reuse ceritificate serial numbers
+
+I was testing a local HTTPS server using localhost.  If for some reason
+you remove ~/.localhost, Firefox will reject the newly created
+certificate saying that it has the same serial number from a previously
+seen certificate, but it's a diffreent one. Just use the current UNIX
+epoch as the serial number to avoid this.
+
+Signed-off-by: Antonio Terceiro <terceiro@debian.org>
+---
+ lib/localhost/authority.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/localhost/authority.rb b/lib/localhost/authority.rb
+index b9ea3d0..806d2d5 100644
+--- a/lib/localhost/authority.rb
++++ b/lib/localhost/authority.rb
+@@ -119,7 +119,7 @@ module Localhost
+ 				
+ 				certificate.public_key = self.key.public_key
+ 				
+-				certificate.serial = 1
++				certificate.serial = Time.now.to_i
+ 				certificate.version = 2
+ 				
+ 				certificate.not_before = Time.now

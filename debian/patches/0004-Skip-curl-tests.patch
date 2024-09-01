@@ -1,0 +1,30 @@
+From: Antonio Terceiro <terceiro@debian.org>
+Date: Tue, 7 Feb 2023 17:47:44 +0100
+Subject: Skip curl tests
+
+For some reason the server created during the tests does not work
+against curl. Extracting it and putting it on a script to test against a
+real web browser (Firefox) does not work either. On the other hand,
+openssl s_client against that same server just work, so I assume this
+home made implementation of a HTTP server in the tests is broken and it
+says nothing about the actual functionality of the package.
+
+Closes: #1027080
+Upstream-Bug: https://github.com/socketry/localhost/issues/19
+---
+ spec/localhost/protocol_spec.rb | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/spec/localhost/protocol_spec.rb b/spec/localhost/protocol_spec.rb
+index 59293ff..98ecf26 100644
+--- a/spec/localhost/protocol_spec.rb
++++ b/spec/localhost/protocol_spec.rb
+@@ -36,7 +36,7 @@ RSpec.shared_examples_for "valid protocol" do |protocol, openssl_options, curl_o
+ 		server_task.stop
+ 	end
+ 	
+-	it "can connect using HTTP over #{protocol}" do
++	xit "can connect using HTTP over #{protocol}" do
+ 		status = Async::Process.spawn("curl", "--verbose", "--insecure", "https://localhost:4040", *curl_options)
+ 		
+ 		expect(status).to be_success
